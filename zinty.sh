@@ -1,11 +1,9 @@
 #!/bin/sh
+username=cost2action
 for host in $(cat host)
 do
-	ssh -t $host "echo 'hello system is going to down' | wall  "
-ssh -t $host<< EOF 
-apt install zenity -y > /dev/null 2>&1
-zenity --info --title= 'Alert by server team' --text='The timer is over ...!'
-EOF
+	ssh  $username@$host "echo 'hello system is going to down' | wall  "
+	ssh  $username@$host "notify-send 'title' 'hello dear your system is goiing go down'" 
 done
 #for host in $(cat host)
 #do
