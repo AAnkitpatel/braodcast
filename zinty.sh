@@ -1,5 +1,5 @@
 #!/bin/sh
-username=cost2action
+username=root
 for host in $(cat host)
 do
 	ssh  $username@$host "echo 'hello system is going to down' | wall  "
